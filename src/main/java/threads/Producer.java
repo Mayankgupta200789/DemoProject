@@ -22,23 +22,32 @@ public class Producer extends Thread {
     public void run() {
 
         while (true) {
+            synchronized (queue) {
 
-
-                if (queue.size() != maxSize) {
-
-                    Random random = new Random();
-                    int input = random.nextInt(1000);
-                    System.out.println("Input produced " + input);
-                    synchronized (queue) {
-                        queue.add(input);
-                    }
-
+                while (queue.size() == maxSize) {
                     try {
-                        Thread.sleep(1000);
+                        queue.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
+            }
+
+            synchronized (queue) {
+
+                Random random = new Random();
+                int input = random.nextInt(1000);
+                System.out.println("Input produced " + input);
+                queue.add(input);
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                queue.notifyAll();
+            }
 
 
         }

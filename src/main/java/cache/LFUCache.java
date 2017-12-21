@@ -16,14 +16,6 @@ public class LFUCache {
     private Map<Integer,Integer> cache = new HashMap<>();
 
 
-    private PriorityQueue<Item> items = new PriorityQueue<>((o1, o2) -> {
-
-        int result = 0;
-
-        result = Integer.compare(o1.freq, o2.freq);
-
-        return result;
-    });
 
     public static void main(String[] args) {
 
@@ -186,13 +178,11 @@ public class LFUCache {
             int freqValue = item.freq;
             int newfreq = ++freqValue;
             Item newitem = new Item(value, newfreq);
-            items.add(newitem);
             this.freq.put(key, newitem);
         } else {
 
             Item newItem = new Item(value, 1);
             freq.put(key, newItem);
-            items.add(newItem);
         }
 
     }

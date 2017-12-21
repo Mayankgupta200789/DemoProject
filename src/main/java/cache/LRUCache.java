@@ -1,12 +1,9 @@
 package cache;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @Author Mayank Gupta
@@ -16,15 +13,9 @@ public class LRUCache {
 
     private int capacity;
 
-    private Map<Integer,Integer> cache = new ConcurrentHashMap<>();
+    private Map<Integer,Integer> cache = new HashMap<>();
 
-    private Queue<Integer> keyQueue = new ConcurrentLinkedQueue<>();
-
-    private ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
-
-    private Lock readLock = readWriteLock.readLock();
-
-    private Lock writeLock = readWriteLock.writeLock();
+    private Queue<Integer> keyQueue = new LinkedList<>();
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
@@ -32,48 +23,42 @@ public class LRUCache {
 
     public int get(int key) {
 
-        int value;
-        try {
-            readLock.lock();
-            if (cache.get(key) == null) {
-                return -1;
-            } else {
-                keyQueue.remove(key);
-                keyQueue.add(key);
-                value = cache.get(key);
-            }
-        } finally {
-            readLock.unlock();
+        if( cache.get(key) == null ) {
+            return -1;
+        }else {
+            keyQueue.remove(key);
+            keyQueue.add(key);
+            return cache.get(key);
         }
-        return value;
     }
 
     public void put(int key, int value) {
 
-
-        try {
-            writeLock.lock();
-            if (keyQueue.size() < capacity) {
-                if (cache.get(key) == null) {
-                    keyQueue.add(key);
-                } else {
-                    keyQueue.remove(key);
-                    keyQueue.add(key);
-                }
-                cache.put(key, value);
-            } else if (cache.get(key) == null) {
-                Integer keyToBeRemoved = keyQueue.remove();
-                cache.remove(keyToBeRemoved);
+        if(keyQueue.size() < capacity ) {
+            if( cache.get(key) == null) {
                 keyQueue.add(key);
-                cache.put(key, value);
             } else {
                 keyQueue.remove(key);
                 keyQueue.add(key);
-                cache.put(key, value);
             }
-        } finally {
-            writeLock.unlock();
+            cache.put(key,value);
+        } else if( cache.get(key) == null ) {
+            Integer keyToBeRemoved = keyQueue.remove();
+            cache.remove(keyToBeRemoved);
+            keyQueue.add(key);
+            cache.put(key,value);
+        } else {
+            keyQueue.remove(key);
+            keyQueue.add(key);
+            cache.put(key,value);
         }
 
     }
 }
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */

@@ -7,8 +7,13 @@ package recursion;
 public class PrintBinary {
 
     public static void main(String args[] ) {
-        PrintBinary printBinary = new PrintBinary();
-        System.out.println(printBinary.printBinary(200000));
+
+        String input1 = "1";
+        String input2 = "1";
+        int a = Integer.parseInt(input1) * Integer.parseInt(input2);
+        System.out.println(a);
+//        PrintBinary printBinary = new PrintBinary();
+//        System.out.println(printBinary.printBinary(200000));
     }
 
     public String printBinary(int input ) {

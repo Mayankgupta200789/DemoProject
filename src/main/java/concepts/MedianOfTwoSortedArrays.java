@@ -47,8 +47,7 @@ public class MedianOfTwoSortedArrays {
             return total.get(outputSize/2);
         }else {
             double a = total.get(outputSize/2) + total.get(outputSize/2 - 1);
-            double result = a/2;
-            return result;
+            return a/2;
 
         }
 

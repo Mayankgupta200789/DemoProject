@@ -10,7 +10,7 @@ public class PrimeFactors {
         PrimeFactors primeFactors = new PrimeFactors();
 
 
-        primeFactors.primeFactors(33);
+        primeFactors.primeFactors(11);
     }
 
 

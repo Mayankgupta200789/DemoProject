@@ -21,6 +21,7 @@ public class BinaryGenerator {
             for(int i = 0 ; i <= 1; i++ ) {
                 generate(input - 1,prefix + String.valueOf(i));
             }
+            //0111
 
         }
     }

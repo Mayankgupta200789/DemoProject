@@ -21,20 +21,35 @@ public class Consumer extends Thread {
 
         while (true) {
 
+            synchronized (queue) {
 
-                if (!queue.isEmpty()) {
-                    synchronized (queue) {
-                        System.out.println("Input consumed " + queue.remove());
+                while(queue.isEmpty()) {
+                    System.out.println("Waiting for producer to produce");
+                    try {
+                        queue.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                }
+            }
+
+
+            synchronized (queue) {
+                while (!queue.isEmpty()) {
+                    System.out.println("Input consumed " + queue.remove());
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
                 }
-
-
+            }
         }
 
     }

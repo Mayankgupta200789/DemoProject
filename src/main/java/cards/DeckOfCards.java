@@ -17,10 +17,10 @@ public class DeckOfCards {
 
         for(FaceValue faceValue : values ) {
 
-            ClubCard clubCard = new ClubCard(faceValue);
-            DiamondCard diamondCard = new DiamondCard(faceValue);
-            SpadeCard spadeCard = new SpadeCard(faceValue);
-            HeartCard heartCard = new HeartCard(faceValue);
+            Card clubCard = new ClubCard(faceValue);
+            Card diamondCard = new DiamondCard(faceValue);
+            Card spadeCard = new SpadeCard(faceValue);
+            Card heartCard = new HeartCard(faceValue);
 
             cards.add(clubCard);
             cards.add(diamondCard);
