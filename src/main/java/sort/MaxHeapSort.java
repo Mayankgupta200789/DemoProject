@@ -17,7 +17,9 @@ import java.util.Arrays;
  *
  * HeapSort     vs      QuickSort
  *
- * Heapsort is O(N log N) guaranted, what is much better than worst case in Quicksort. Heapsort don't need more memory for another array to putting ordered data as is needed by Mergesort. So why do comercial applications stick with Quicksort? What Quicksort has that is so special over others implementations?
+ * Heapsort is O(N log N) guaranted, what is much better than worst case in Quicksort.
+ * Heapsort don't need more memory for another array to putting ordered data as is needed by Mergesort.
+ * So why do comercial applications stick with Quicksort? What Quicksort has that is so special over others implementations?
 
 I've tested the algorithms myself and I've seen that Quicksort has something special indeed. It runs fast, much faster than Heap and Merge algorithms.
 
