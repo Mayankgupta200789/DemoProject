@@ -1,7 +1,5 @@
 package sort;
 
-import org.apache.commons.lang.ArrayUtils;
-
 /**
  * @Author Mayank Gupta
  * @Date 12/11/17
@@ -24,7 +22,8 @@ public class QuickSort {
 
         QuickSort quickSort = new QuickSort();
 
-        quickSort.quickSort(inputs,0,inputs.length - 1);
+//        quickSort.quickSort(inputs,0,inputs.length - 1);
+        quickSort.quickSort2(inputs,0,inputs.length - 1);
 
         for (int output : inputs ){
             System.out.print(output + "\t");
@@ -34,54 +33,45 @@ public class QuickSort {
     }
 
 
-    public void quickSort(int[] inputs, int low, int high ) {
-
-        if(ArrayUtils.isEmpty(inputs)) return;
-
-        if( low >= high ) return;
 
 
-        int partition = partition(inputs, low, high );
+    public void quickSort(int[] inputs,int low, int high ) {
 
-        if( low <  partition ) {
-            quickSort(inputs, low, partition );
+        int mid = partition(inputs,low, high );
+
+        if( low < mid - 1 ){
+            quickSort(inputs,low,mid - 1 );
         }
 
-        if ( high > partition ){
-            quickSort(inputs, partition , high);
+        if(mid < high ) {
+            quickSort(inputs,mid, high);
         }
-
     }
 
-    public int partition(int[] inputs, int low, int high ) {
+    private int partition(int[] inputs, int low, int high) {
 
-        int mid = low + ( high - low ) /2;
+        int mid = (low + high )/2;
 
-        while( low <= high ) {
+        while( low < high ) {
 
-            while( inputs[low]  < inputs[mid]  ) {
+            while( inputs[low] < inputs[mid] && low < mid ) {
                 low++;
             }
 
-            while( inputs[high] > inputs[mid] ) {
+            while( inputs[high] > inputs[mid] && high > mid ) {
                 high--;
             }
 
             if( low <= high ) {
-                swap(inputs,low,high);
+                swap(inputs, low, high);
                 low++;
                 high--;
             }
-
-
-
         }
 
         return low;
 
-
     }
-
 
     private void swap(int[] inputs, int index1,int index2 ) {
 
@@ -91,5 +81,44 @@ public class QuickSort {
 
         inputs[index2] = temp;
 
+    }
+
+    public  void quickSort2(int[] arr, int low, int high) {
+        if (arr == null || arr.length == 0)
+            return;
+
+        if (low >= high)
+            return;
+
+        // pick the pivot
+        int middle = low + (high - low) / 2;
+        int pivot = arr[middle];
+
+        // make left < pivot and right > pivot
+        int i = low, j = high;
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                i++;
+            }
+
+            while (arr[j] > pivot) {
+                j--;
+            }
+
+            if (i <= j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        // recursively sort two sub parts
+        if (low < j)
+            quickSort2(arr, low, j);
+
+        if (high > i)
+            quickSort2(arr, i, high);
     }
 }
