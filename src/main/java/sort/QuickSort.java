@@ -1,5 +1,7 @@
 package sort;
 
+import org.apache.commons.lang.ArrayUtils;
+
 /**
  * @Author Mayank Gupta
  * @Date 12/11/17
@@ -32,45 +34,54 @@ public class QuickSort {
     }
 
 
+    public void quickSort(int[] inputs, int low, int high ) {
+
+        if(ArrayUtils.isEmpty(inputs)) return;
+
+        if( low >= high ) return;
 
 
-    public void quickSort(int[] inputs,int low, int high ) {
+        int partition = partition(inputs, low, high );
 
-        int mid = partition(inputs,low, high );
-
-        if( low < mid - 1 ){
-            quickSort(inputs,low,mid - 1 );
+        if( low <  partition ) {
+            quickSort(inputs, low, partition );
         }
 
-        if(mid < high ) {
-            quickSort(inputs,mid, high);
+        if ( high > partition ){
+            quickSort(inputs, partition , high);
         }
+
     }
 
-    private int partition(int[] inputs, int low, int high) {
+    public int partition(int[] inputs, int low, int high ) {
 
-        int mid = (low + high )/2;
+        int mid = low + ( high - low ) /2;
 
-        while( low < high ) {
+        while( low <= high ) {
 
-            while( inputs[low] < inputs[mid] && low < mid ) {
+            while( inputs[low]  < inputs[mid]  ) {
                 low++;
             }
 
-            while( inputs[high] > inputs[mid] && high > mid ) {
+            while( inputs[high] > inputs[mid] ) {
                 high--;
             }
 
             if( low <= high ) {
-                swap(inputs, low, high);
+                swap(inputs,low,high);
                 low++;
                 high--;
             }
+
+
+
         }
 
         return low;
 
+
     }
+
 
     private void swap(int[] inputs, int index1,int index2 ) {
 

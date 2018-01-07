@@ -1,9 +1,6 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @Author Mayank Gupta
@@ -33,9 +30,6 @@ public class CourseSchedule {
         Queue<Integer> queue = new LinkedList<>();
 
         List<Integer> result = new ArrayList<>();
-
-        int j = numCourses - 1;
-
 
         for(int i = 0 ; i < numCourses; i++ ) {
             graph.add(i,new ArrayList<>());

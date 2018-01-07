@@ -14,7 +14,7 @@ public class GrayCodeGenerator {
 
         GrayCodeGenerator grayCodeGenerator = new GrayCodeGenerator();
 
-        grayCodeGenerator.grayCode(10);
+        System.out.println(grayCodeGenerator.grayCode(5));
     }
 
 
@@ -28,6 +28,8 @@ public class GrayCodeGenerator {
         output.add(0);
         doGrayCode(output,a);
 
+
+        // 0 1 3 2 6 7 5 4
         return output;
     }
 

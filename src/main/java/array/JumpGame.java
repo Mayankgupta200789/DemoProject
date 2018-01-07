@@ -8,11 +8,11 @@ public class JumpGame {
 
     private boolean isValid;
 
-    public void setValid(boolean valid) {
+    public static void main(String args[]){
 
         JumpGame jumpGame = new JumpGame();
 
-        jumpGame.canJump(new int[]{1,2,0,4});
+        jumpGame.canJump(new int[]{1,1,1,4});
     }
 
     public boolean canJump(int[] nums) {
