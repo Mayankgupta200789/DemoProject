@@ -48,7 +48,9 @@ public class MaxHeapSort {
 
         maxHeapSort.heapsort(inputs);
 
-        Arrays.stream(inputs).forEach(System.out::println);
+        Arrays.stream(inputs).forEach(input -> {
+            System.out.print(input +"\t");
+        });
     }
 
 

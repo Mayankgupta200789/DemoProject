@@ -1,4 +1,4 @@
-package tree;
+package decision;
 
 import java.util.ArrayList;
 import java.util.HashSet;

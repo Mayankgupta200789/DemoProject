@@ -24,6 +24,7 @@ public class NQueens {
         NQueens nQueens = new NQueens();
 
         nQueens.solveNQueens(8);
+
     }
 
     private ArrayList<ArrayList<String>> solveNQueens(int a) {

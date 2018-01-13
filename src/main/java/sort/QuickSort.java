@@ -1,5 +1,7 @@
 package sort;
 
+import java.util.Arrays;
+
 /**
  * @Author Mayank Gupta
  * @Date 12/11/17
@@ -18,16 +20,16 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        int[] inputs = new int[] {4,3,2,1,34,1,2,4,3,5,4,6,5};
+        int[] inputs = new int[] {4,3,2,1,34,1,2,90,3,80,70,6,5};
 
         QuickSort quickSort = new QuickSort();
 
-//        quickSort.quickSort(inputs,0,inputs.length - 1);
-        quickSort.quickSort2(inputs,0,inputs.length - 1);
+        quickSort.quickSort(inputs,0,inputs.length - 1);
+//        quickSort.quickSort2(inputs,0,inputs.length - 1);
 
-        for (int output : inputs ){
-            System.out.print(output + "\t");
-        }
+        Arrays.stream(inputs).forEach(input -> {
+            System.out.print(input + "\t");
+        });
 
 
     }
@@ -50,15 +52,15 @@ public class QuickSort {
 
     private int partition(int[] inputs, int low, int high) {
 
-        int mid = (low + high )/2;
+        int mid = low + (high - low )/2;
 
         while( low < high ) {
 
-            while( inputs[low] < inputs[mid] && low < mid ) {
+            while( inputs[low] < inputs[mid]) {
                 low++;
             }
 
-            while( inputs[high] > inputs[mid] && high > mid ) {
+            while( inputs[high] > inputs[mid] ) {
                 high--;
             }
 
