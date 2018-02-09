@@ -34,9 +34,9 @@ public class CourseSchedule {
         for(int i = 0 ; i < numCourses; i++ ) {
             graph.add(i,new ArrayList<>());
         }
-        for(int i = 0; i < prerequisites.length; i++ ) {
-            degree[prerequisites[i][1]]++;
-            graph.get(prerequisites[i][0]).add(prerequisites[i][1]);
+        for (int[] prerequisite : prerequisites) {
+            degree[prerequisite[1]]++;
+            graph.get(prerequisite[0]).add(prerequisite[1]);
         }
 
         for(int i = 0 ; i < degree.length; i++ ) {
@@ -67,6 +67,7 @@ public class CourseSchedule {
             }
         }
 
+
         if( result.size() != numCourses)    return new int[0];
 
         int[] output = new int[result.size()];
@@ -75,6 +76,8 @@ public class CourseSchedule {
         for(int l = (result.size() - 1); l >= 0; l-- ) {
             output[l] = result.get(k++);
         }
+
+
 
         return output;
 

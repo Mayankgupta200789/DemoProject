@@ -17,10 +17,10 @@ public class DuplicateElementInArray {
 
 		DuplicateElementInArray duplicateElementInArray = new DuplicateElementInArray();
 
-		duplicateElementInArray.repeatedNumber(inputs);
+		System.out.println(duplicateElementInArray.repeatedNumber(inputs));
 	}
 
-	public int repeatedNumber(final List<Integer> a) {
+	private int repeatedNumber(final List<Integer> a) {
 
 		int x = 1;
 

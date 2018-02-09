@@ -20,9 +20,7 @@ public class LargestNumber {
 
 		StringBuilder result = new StringBuilder();
 
-		List<Integer> inputs = new ArrayList<>();
-
-		inputs.addAll(A);
+		List<Integer> inputs = new ArrayList<>(A);
 
 		inputs.sort((a, b) -> {
 
@@ -66,7 +64,7 @@ public class LargestNumber {
 		return result.toString().isEmpty() ? "0" : result.toString();
 	}
 
-	public String largestNumber(int[] B) {
+	private String largestNumber(int[] B) {
 
 
 		StringBuilder result = new StringBuilder();
@@ -109,13 +107,12 @@ public class LargestNumber {
 
 		boolean firstDigit = true;
 
-		for ( int i = 0 ; i < A.length; i++ )
-		{
-			if( firstDigit && A[i] != 0 ) {
-				result.append(A[i]);
+		for (Integer aA : A) {
+			if (firstDigit && aA != 0) {
+				result.append(aA);
 				firstDigit = false;
-			} else if ( !firstDigit ){
-				result.append(A[i]);
+			} else if (!firstDigit) {
+				result.append(aA);
 			}
 		}
 

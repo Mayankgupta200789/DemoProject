@@ -22,7 +22,7 @@ public class TargetDiff {
         System.out.println("Resultant pairs total is  " +result);
     }
 
-    public int findPairs(int[] nums, int k) {
+    private int findPairs(int[] nums, int k) {
 
         int result = 0;
 
@@ -34,14 +34,14 @@ public class TargetDiff {
         Set<Pair> hashPairs = new HashSet<>();
 
 
-        for(int i = 0; i < nums.length; i++ ) {
+        for (int num : nums) {
 
-            int output1 = k + nums[i];
+            int output1 = k + num;
 //            int output2 = nums[i] - k;
 
-            if ( hashSet.contains(output1) && !hashPairs.contains(new Pair(nums[i], output1)) ) {
+            if (hashSet.contains(output1) && !hashPairs.contains(new Pair(num, output1))) {
                 result++;
-                hashPairs.add(new Pair(nums[i], output1));
+                hashPairs.add(new Pair(num, output1));
             }
 
 //            if ( hashSet.contains(output2) && !hashPairs.contains(new Pair(nums[i], output2)) ) {
@@ -49,7 +49,7 @@ public class TargetDiff {
 //                hashPairs.add(new Pair(nums[i],output2));
 //            }
 
-            hashSet.add(nums[i]);
+            hashSet.add(num);
 
         }
 
@@ -62,7 +62,7 @@ public class TargetDiff {
         int x;
         int y;
 
-        public Pair(int x, int y ) {
+        Pair(int x, int y) {
             this.x = x;
             this.y = y;
         }

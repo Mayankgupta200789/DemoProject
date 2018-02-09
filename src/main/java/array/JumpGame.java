@@ -15,7 +15,7 @@ public class JumpGame {
         jumpGame.canJump(new int[]{1,1,1,4});
     }
 
-    public boolean canJump(int[] nums) {
+    private boolean canJump(int[] nums) {
 
         int reachable = 0;
         for (int i=0; i < nums.length; ++i) {
