@@ -54,7 +54,7 @@ public class MaxHeapSort {
     }
 
 
-    public void heapsort(int[] inputs) {
+    private void heapsort(int[] inputs) {
 
         int n = inputs.length;
 
