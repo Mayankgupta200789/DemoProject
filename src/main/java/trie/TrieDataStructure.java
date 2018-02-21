@@ -22,13 +22,12 @@ public class TrieDataStructure {
         TrieNode node = root;
 
         for(int i = 0; i < input.length(); i++ ) {
-            if(!node.nodes.containsKey(input.charAt(i)) ) {
+            if(!node.getNodes().containsKey(input.charAt(i)) ) {
                 TrieNode newTrie = new TrieNode();
-                node.nodes.put(input.charAt(i), newTrie);
+                node.getNodes().put(input.charAt(i), newTrie);
                 node = newTrie;
             } else {
-                TrieNode trieNode = node.nodes.get(input.charAt(i));
-                node = trieNode;
+                node = node.getNodes().get(input.charAt(i));
             }
         }
         node.isEnd = true;
@@ -40,10 +39,10 @@ public class TrieDataStructure {
 
         for(int i = 0; i < input.length(); i++) {
 
-            if(!node.nodes.containsKey(input.charAt(i))) {
+            if(!node.getNodes().containsKey(input.charAt(i))) {
                 return false;
             } else {
-                node = node.nodes.get(input.charAt(i));
+                node = node.getNodes().get(input.charAt(i));
             }
         }
 
@@ -62,14 +61,14 @@ public class TrieDataStructure {
 
         for(int i = 0 ; i < input.length();i++ ) {
 
-            if(!node.nodes.containsKey(input.charAt(i))) {
+            if(!node.getNodes().containsKey(input.charAt(i))) {
                 return result;
             } else {
-                node = node.nodes.get(input.charAt(i));
+                node = node.getNodes().get(input.charAt(i));
             }
         }
 
-        prefixSearchWord(input,node.nodes,result);
+        prefixSearchWord(input, node.getNodes(),result);
 
         return result;
     }
@@ -80,8 +79,8 @@ public class TrieDataStructure {
             if( nodeEntry.getValue().isEnd ) {
                 result.add(word + nodeEntry.getKey());
             }
-            if( !nodeEntry.getValue().nodes.isEmpty()){
-                prefixSearchWord(word + nodeEntry.getKey(), nodeEntry.getValue().nodes,result);
+            if( !nodeEntry.getValue().getNodes().isEmpty()){
+                prefixSearchWord(word + nodeEntry.getKey(), nodeEntry.getValue().getNodes(),result);
             }
         }
     }
@@ -90,14 +89,21 @@ public class TrieDataStructure {
 
     class TrieNode {
 
-        Map<Character,TrieNode> nodes;
+        private Map<Character,TrieNode> nodes;
 
         boolean isEnd;
 
         public TrieNode() {
 
-            this.nodes = new HashMap<>();
+            this.setNodes(new HashMap<>());
         }
 
+        public Map<Character, TrieNode> getNodes() {
+            return nodes;
+        }
+
+        public void setNodes(Map<Character, TrieNode> nodes) {
+            this.nodes = nodes;
+        }
     }
 }

@@ -37,7 +37,7 @@ public class QuickSort {
 
 
 
-    public void quickSort(int[] inputs,int low, int high ) {
+    private void quickSort(int[] inputs, int low, int high) {
 
         int mid = partition(inputs,low, high );
 
