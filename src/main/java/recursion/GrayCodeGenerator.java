@@ -39,9 +39,11 @@ public class GrayCodeGenerator {
             return;
         }
 
-        int size = output.size();
-        for(int i = (size - 1); i >= 0 ; i-- ) {
+        int size = 0;
+
+        for(int i = (size - 1); i >= 0; i-- ) {
             output.add(output.get(i) + size);
+
         }
 
         doGrayCode(output,a);

@@ -11,16 +11,17 @@ public class KMostFrequentWordsInBook {
         KMostFrequentWordsInBook kMostFrequentWordsInBook = new KMostFrequentWordsInBook();
 
         List<String> words = Arrays.asList("the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is");
+        List<String> words1 = Arrays.asList("the", "the");
 
 
 
 
-//        ikMostFrequentWordsInBook.kTopValue(words, 4);
+        kMostFrequentWordsInBook.kTopValue(words, 4);
 
 
     }
 
-    private List<String> kTopValue(String[] words, int k) {
+    private List<String> kTopValue(List<String> words, int k) {
 
         Map<String,Integer> hashMap = new HashMap<>();
 
@@ -62,4 +63,6 @@ public class KMostFrequentWordsInBook {
         return result;
 
     }
+
+
 }

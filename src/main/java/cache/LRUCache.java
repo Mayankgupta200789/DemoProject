@@ -17,18 +17,20 @@ public class LRUCache {
 
     private Queue<Integer> keyQueue = new LinkedList<>();
 
-    public LRUCache(int capacity) {
+    LRUCache(int capacity) {
         this.capacity = capacity;
     }
 
     public int get(int key) {
 
-        if( cache.get(key) == null ) {
-            return -1;
-        }else {
-            keyQueue.remove(key);
-            keyQueue.add(key);
-            return cache.get(key);
+        synchronized (keyQueue) {
+            if (cache.get(key) == null) {
+                return -1;
+            } else {
+                keyQueue.remove(key);
+                keyQueue.add(key);
+                return cache.get(key);
+            }
         }
     }
 
