@@ -7,6 +7,8 @@ package tree;
 public class SecondMinimumBinaryTree {
 
 
+
+
     public int findSecondMinimumValue(TreeNode root) {
 
         if( root == null ) return -1;
