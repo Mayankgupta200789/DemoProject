@@ -15,8 +15,6 @@ public class TrieDataStructure {
     private TrieNode root = new TrieNode();
 
 
-
-
     public void insert(String input) {
 
         TrieNode node = root;
