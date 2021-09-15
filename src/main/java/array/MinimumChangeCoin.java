@@ -19,6 +19,8 @@ import java.util.Collection;
 // Lets assume that M[i-1] is sum of first i-1 numbers
 // then if M[i-1] + 1 > x (where x is  the new number) then M[i-1] + 1 is the missing value that can be constructed
 // otherwise continue with M[i-1] + x
+// Another observation is that the order of the elements within the array makes no
+//difference to the amounts that are constructible.
 public class MinimumChangeCoin {
 
 
