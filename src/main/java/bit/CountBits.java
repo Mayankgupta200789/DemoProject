@@ -15,6 +15,7 @@ package bit;
  */
 public class CountBits {
 
+
     public int countBits(int x ) {
 
         int count = 0;
