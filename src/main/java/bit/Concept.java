@@ -1,5 +1,18 @@
 package bit;
 
+
+/**
+ * The expression x & (x - 1) clears the lowest set bit in x
+ * x & ~(x - 1) extract the lowest set bit in x
+ * 16 & ( 15) = 0
+ * 11 & (10) = 0
+ * 20 & (19) = 0
+ * 16 & -16 = -16
+ * 11 & -10 = -10
+ *
+ *
+ *
+ */
 public class Concept {
 
     public void checkBitwise() {
