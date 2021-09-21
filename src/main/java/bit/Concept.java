@@ -10,8 +10,11 @@ package bit;
  * 16 & -16 = -16
  * 11 & -10 = -10
  *
+ * * BITWISE complement is
+ * ~1010101 = 0101010
  *
- *
+ * x & (x -1 ) = 11 & 10 = 10 // Seths the lowest bit to zero
+ * x & ~(x -1) = 11 & 01 = 1 // Extract the last set bit
  */
 public class Concept {
 
