@@ -20,7 +20,13 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        int[] inputs = new int[] {4,3,2,1,34,1,2,90,3,80,70,6,5};
+        // 5  4 3 2 0 7 8 9 10
+        // 10 4 3 2 0 7 8 9 5
+        // 10 9 3 2 0 7 8 4 5
+        // 10 9 8 2 0 7 3 4 5
+        // 10 9 8 7 0 2 3 4 5
+
+        int[] inputs = new int[] {5,4,3,2,0,7,8,9,10};
 
         QuickSort quickSort = new QuickSort();
 
