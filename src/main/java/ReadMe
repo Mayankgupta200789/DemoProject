@@ -1,0 +1,8 @@
+Sorting                 Uncover some structure by sorting the input
+Recursion               If the structure of the input is defined in a recursive manner, design a recursive algorithm
+                        that follows the input definition
+Divide&Conquer          Divide the problem into two or more smaller independent subproblems and solve the original problem
+                        using solutions to the subproblems
+Dynamic Programming     Compute solutions for smaller instances of a given problem and use these solutions to construct a solution to the problem. Cache for performance
+Greedy algorithms       Compute a solution in stages, making choices that are locally optimum at step, these choices are never undone
+Invariants              Identify an invariant and use it to rule out potential solutions that are suboptimal/dominated by other solutions.
