@@ -21,6 +21,14 @@ import java.util.Arrays;
 
  Input: n = 1
  Output: 0
+
+ Complexity
+ This is sieve's algorithm.
+
+ Time complexity is calculated is O (n/2 + n/3 + n/5 + n/ + n/11 + .... )
+ This results in O(n log log n)
+ Space complexity is O(n)
+
  */
 public class CountPrimes {
 
