@@ -1,0 +1,26 @@
+1) Look at the characteristics I see in the problem. Can I combine a sufficient number of these characteristics and match
+them to a known data structure/algorithm.
+2) Let me generate a few examples. What are the patterns generated from the examples?
+What will the algorithm look like? What is the simplest naive solution?
+3) Look at every sybstep of the algorithm. For every substep, go back to step 1 with the question "How can I optimize this
+substep".
+
+
+To help you better optimize your solutions here is the order of precedence. If you end up with an algorithm of a particular
+time complexity, your more optimal solution must be an operational below it.
+
+O(2 to the pow of n or 3 to the pow of n) Permutation
+O(N2, N3) recursion/generate subsets, nested loops
+O(N log N) : Sorting/heap
+O(N): Iteration, pointers/sliding window, common array operations
+O(log N) : Binary Search? Exponentially sized steps search
+
+For instance, if you find your solution or part of your solution is N2, then you should try sorting, iterating,
+doing a binary search, or some combination thereof to improve your solution.
+
+You can go from 1->2->3 but never are you allowed to go from 3->2 or 2->1.
+ If you have to, it means your pattern matching is bad and you didn’t practice enough.
+
+
+1234 ->
+
