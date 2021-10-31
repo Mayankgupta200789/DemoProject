@@ -4,30 +4,24 @@ public class MaxSumSubArrayOfSizeK {
 
     public static int findMaxSumSubArray(int k, int[] arr) {
 
-        if(arr.length == 0 || k == 0 || k > arr.length ) return 0;
-        int windowStart = 0 ;
-        int windowEnd = k - 1;
-        int windowSum = 0;
-
         int maxSum = Integer.MIN_VALUE;
 
+        int windowStart = 0;
+        int windowSum =0 ;
 
-        for(int i = 0 ; i <= windowEnd; i++ ) {
+        for(int windowEnd = 0 ; windowEnd < arr.length ; windowEnd++ ) {
 
-            windowSum += arr[i];
-        }
-
-        maxSum = Math.max(maxSum,windowSum);
-
-        while(windowEnd < arr.length - 1) {
-
-            windowSum -= arr[windowStart];
-            windowStart++;
-            windowEnd++;
             windowSum += arr[windowEnd];
-            maxSum = Math.max(maxSum,windowSum);
+
+            if(windowEnd >= k - 1) {
+
+                maxSum = Math.max(maxSum, windowSum);
+                windowSum -= arr[windowStart];
+                windowStart++;
+            }
         }
 
         return maxSum;
     }
+
 }

@@ -18,7 +18,7 @@ public class SlidingWindowTest {
 
         int[] input = new int[]{1,2,12,12,123,1,2,4,1,-5,-4,-4};
 
-        double[] slide = slidingWindow.slide(input, 6);
+        //double[] slide = SlidingWindow.findAverages(input, 6);
 
         // [2,3,4]
     }

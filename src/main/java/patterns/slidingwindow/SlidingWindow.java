@@ -2,31 +2,22 @@ package patterns.slidingwindow;
 
 public class SlidingWindow {
 
-    public double[] slide(int[] input ,int k ) {
+    public static double[] findAverages(int K, int[] arr) {
 
-        double[] result = new double[input.length - k + 1];
+        double[] result = new double[arr.length - K + 1];
+        int windowStart = 0,windowSum = 0;
+        for(int windowEnd = 0 ; windowEnd < arr.length; windowEnd++ ){
 
-        int windowStart = 0;
-        int windowEnd = k - 1;
-        int sum = 0;
+            windowSum += arr[windowEnd];
 
-        for(int i = 0 ; i < k; i++ ) {
+            if(windowEnd >= K - 1) {
 
-            sum = sum + input[i];
+                result[windowStart] = windowSum/K;
+                windowSum -= arr[windowStart];
+                windowStart++;
+            }
         }
-
-        int j = 0;
-        if(result.length > 0 ) result[j++] = sum /k;
-
-        while(windowEnd < input.length - 1 ) {
-
-            sum = sum - input[windowStart];
-            windowStart++;
-            windowEnd++;
-            sum = sum + input[windowEnd];
-            result[j++] = sum /k;
-        }
-
         return result;
     }
+
 }
