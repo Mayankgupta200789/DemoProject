@@ -1,7 +1,7 @@
 package patterns.slidingwindow;
 
 import java.util.*;
-
+//Given a string, find the length of the longest substring in it with no more than K distinct characters.
 class LongestSubstringKDistinct {
     public static int findLength(String str, int k) {
         int windowStart = 0;
