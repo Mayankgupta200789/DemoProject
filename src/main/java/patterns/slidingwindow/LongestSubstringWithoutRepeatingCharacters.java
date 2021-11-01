@@ -3,7 +3,7 @@ package patterns.slidingwindow;
 import java.util.HashMap;
 import java.util.Map;
 
-https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
+//https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
 
 public class LongestSubstringWithoutRepeatingCharacters {
 
