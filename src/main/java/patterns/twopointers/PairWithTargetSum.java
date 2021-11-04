@@ -1,5 +1,8 @@
 package patterns.twopointers;
 
+
+// Time Complexity O(N)
+// Space complexity O(1)
 public class PairWithTargetSum {
 
     public static int[] search(int[] arr, int targetSum) {
