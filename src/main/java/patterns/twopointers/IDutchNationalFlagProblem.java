@@ -14,6 +14,13 @@ package patterns.twopointers;
 // remaining 1s are kept as it is. This is done by swapping two numbers.
 
 
+// REMEMBER LOW IS REPRESENTING SORTING ELEMENTS TILL LOW FROM LEFT
+// HIGH IS REPRESENTING SORTED ELEMENTS FROM RIGHT TO HIGH
+
+// THUS, FOR LOOP ALWAYS RUNS TILL HIGH AND NOT MORE THAN THAT
+
+
+
 public class IDutchNationalFlagProblem {
 
     public void sortColors(int[] arr) {
