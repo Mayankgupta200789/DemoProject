@@ -5,7 +5,7 @@ import java.util.Map;
 
 
 //https://leetcode.com/problems/longest-repeating-character-replacement/
-class ICharacterReplacement {
+class IICharacterReplacement {
     public static int findLength(String str, int k) {
 
         int windowStart =0 ;
