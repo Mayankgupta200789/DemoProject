@@ -14,7 +14,7 @@ class Interval {
     }
 }
 
-// Time complexity - O(nlogn)
+// Time complexity - O(N)
 // Space complexity - O(N) for collections. sort algorithm
 
 public class InsertIntervals {
@@ -22,30 +22,25 @@ public class InsertIntervals {
         public static List<Interval> insert(List<Interval> intervals, Interval newInterval) {
             List<Interval> mergedIntervals = new ArrayList<>();
 
-            intervals.add(newInterval);
+            int i = 0;
+            int previousEnd = newInterval.end;
+            int previousStart = newInterval.start;
 
-            Collections.sort(intervals,(a, b) -> Integer.compare(a.start,b.start));
-
-            if(intervals.size() < 2) return intervals;
-
-            int previousStart = intervals.get(0).start;
-            int previousEnd = intervals.get(0).end;
-
-
-            for(int i = 1; i < intervals.size(); i++ ) {
-
-                Interval currentInterval = intervals.get(i);
-
-                if(previousEnd >= currentInterval.start ) {
-                    previousEnd = Math.max(currentInterval.end,previousEnd);
-                }else {
-
-                    mergedIntervals.add(new Interval(previousStart,previousEnd));
-                    previousStart = currentInterval.start;
-                    previousEnd = currentInterval.end;
-                }
+            while(i < intervals.size() && intervals.get(i).end < newInterval.start ) {
+                mergedIntervals.add(intervals.get(i++));
             }
+
+            while(i < intervals.size() && newInterval.end >= intervals.get(i).start ){
+                previousEnd = Math.max(intervals.get(i).end, newInterval.end);
+                previousStart = Math.min(intervals.get(i).start,newInterval.start);
+                i++;
+            }
+
             mergedIntervals.add(new Interval(previousStart,previousEnd));
+
+            while(i < intervals.size()) {
+                mergedIntervals.add(intervals.get(i++));
+            }
             return mergedIntervals;
         }
 
