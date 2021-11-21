@@ -49,8 +49,12 @@ class ReverseSubList {
 
             if(previousPthNode != null ) previousPthNode.next = qthNode;
             pthNode.next = qthNodeNext;
-
-        return currentNode;
+            // This part is really important to understand
+        if(previousPthNode == null ){
+            return qthNode;
+        } else  {
+            return head;
+        }
     }
 
     public static void main(String[] args) {
