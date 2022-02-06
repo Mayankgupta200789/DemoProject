@@ -29,45 +29,47 @@ import java.util.Arrays;
  This results in O(n log log n)
  Space complexity is O(n)
 
+
+
  */
 public class CountPrimes {
 
+    public static void main(String[] args) {
+        new CountPrimes().countPrimes(49);
+    }
+
     public int countPrimes(int n) {
 
+        boolean[] primes = new boolean[n];
+        Arrays.fill(primes,true);
 
-        if ( n == 0 || n == 1 || n == 2 ) return 0;
+        // Default 0 and 1 to be non prime
+        primes[0] = false;
+        primes[1] = false;
 
-        boolean[] nonPrimes = new boolean[n];
-        int count = 0;
+        // The reason, we need to check till square root of n
+        // is because if any one factor is greater than square root of n
+        // then other number has to be less than square root of n.
 
-        nonPrimes[0] = true;
-        nonPrimes[1] = true;
+        for(int i = 2; i < Math.sqrt(n);i++ ) {
 
-        for(int i = 2; i < n; i = i + 2  ){
-
-            nonPrimes[i] = true;
-        }
-        nonPrimes[2] = false;
-
-        for(int i = 3; i * 2 < n ; i = i + 2) {
-            if(!nonPrimes[i]) {
-                for(int j = 2; j * i  < nonPrimes.length; j++ ) {
-
-                    if(!nonPrimes[i * j]) {
-                        nonPrimes[i*j] = true;
+            // If the number is prime then put its all multiples to non prime
+            if(primes[i]) {
+                for (int j = 2; j * i < n; j++) {
+                    // dont put j, put j * i to false
+                    if (primes[j * i]) {
+                        primes[j * i] = false;
                     }
                 }
             }
         }
 
-        for(int i = 0; i < nonPrimes.length; i++ ) {
-
-            if(!nonPrimes[i]) {
-                count++;
+        for(int i = 0 ;i < n; i++ ) {
+            if(primes[i]) {
+                System.out.println("the value of prime numbers are " + i);
             }
         }
-
-        return count;
+        return 0;
 
     }
 }
