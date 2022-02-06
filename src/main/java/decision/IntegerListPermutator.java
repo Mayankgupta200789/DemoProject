@@ -56,6 +56,26 @@ public class IntegerListPermutator {
                 choices.add(i,element);
             }
         }
+    }
+
+    public void doPermute(List<Integer> prefix, List<Integer> choices,List<List<Integer>> result) {
+
+        if(choices.size() == 0 ) {
+            result.add(new ArrayList<Integer>(prefix));
+        } else {
+
+            for(int i = 0 ; i < choices.size() ; i++ ) {
+
+                prefix.add(choices.get(i));
+                int element = choices.remove(i);
+                doPermute(prefix,choices,result);
+                choices.add(i,element);
+                prefix.remove(prefix.size() - 1);
+
+            }
+
+
+        }
 
 
     }

@@ -37,4 +37,25 @@ public class PascalTriangleFormer {
         return pascal(i-1,j-1) + pascal(i-1,j);
 
     }
+
+    public void form2(int num) {
+
+        int[][] dp = new int[num][num];
+
+        dp[0][0] = 1;
+        dp[1][0] = 1;
+        dp[1][1] = 1;
+
+        for( int i = 2; i < num; i++ ) {
+            for(int j = 0 ; j < num; j++ ) {
+                if( j == 0) {
+                    dp[i][j]  = 1;
+                } else if ( j == i ){
+                    dp[i][j] = 1;
+                }else{
+                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
+                }
+            }
+        }
+    }
 }

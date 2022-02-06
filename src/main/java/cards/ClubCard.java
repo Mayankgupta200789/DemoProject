@@ -7,9 +7,9 @@ package cards;
 public class ClubCard implements Card {
 
 
-    private FaceValue faceValue;
+    private final FaceValue faceValue;
 
-    private Suit suit = Suit.CLUB;
+    private final Suit suit = Suit.CLUB;
 
     public ClubCard(FaceValue faceValue) {
         this.faceValue = faceValue;

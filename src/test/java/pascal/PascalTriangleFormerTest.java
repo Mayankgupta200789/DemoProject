@@ -19,6 +19,7 @@ public class PascalTriangleFormerTest {
     @Test
     public void form() throws Exception {
         pascalTriangleFormer.form(4);
+        pascalTriangleFormer.form2(4);
     }
 
 }

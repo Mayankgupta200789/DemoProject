@@ -24,6 +24,7 @@ public class A {
 
         A d = new C();
 
+
         d.print(); // C object
 
         a.print(2); // B int object
