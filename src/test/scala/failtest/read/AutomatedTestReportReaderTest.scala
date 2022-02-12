@@ -16,10 +16,10 @@ class AutomatedTestReportReaderTest extends FunSuite with BeforeAndAfterEach {
 
   test("testRead") {
 
-    val reader = new AutomatedTestReportReader
-    val file = new File("C:\\Users\\MayaGupt\\Documents\\EM-Test Report.xml")
-
-    reader.read(file)
+//    val reader = new AutomatedTestReportReader
+//    val file = new File("C:\\Users\\MayaGupt\\Documents\\EM-Test Report.xml")
+//
+//    reader.read(file)
 
   }
 

@@ -1,8 +1,8 @@
 import org.scalatest.{BeforeAndAfterEach, FunSuite}
 
 class ExcelWriterTest extends FunSuite with BeforeAndAfterEach {
-
-  var excelWriter : ExcelWriter = _
+//
+//  var excelWriter : ExcelWriter = _
 
 //  test("testWriteForES") {
 //    excelWriter = new ExcelWriter("ES",108,"es")
@@ -30,20 +30,20 @@ class ExcelWriterTest extends FunSuite with BeforeAndAfterEach {
 
 //
 
-  test("testWriteFoMAO") {
-    excelWriter = new ExcelWriter("MAO",4,"mao")
-    excelWriter.write()
-  }
-
-  test("testWriteForCSV") {
-    excelWriter = new ExcelWriter("CSV",1,"csv")
-    excelWriter.write()
-  }
-
-  test("testWriteForGA") {
-    excelWriter = new ExcelWriter("GA",24,"ga")
-    excelWriter.write()
-  }
+//  test("testWriteFoMAO") {
+//    excelWriter = new ExcelWriter("MAO",4,"mao")
+//    excelWriter.write()
+//  }
+//
+//  test("testWriteForCSV") {
+//    excelWriter = new ExcelWriter("CSV",1,"csv")
+//    excelWriter.write()
+//  }
+//
+//  test("testWriteForGA") {
+//    excelWriter = new ExcelWriter("GA",24,"ga")
+//    excelWriter.write()
+//  }
 
 //  test("testWriteForKS") {
 //    excelWriter = new ExcelWriter("KS",139,"ks")
