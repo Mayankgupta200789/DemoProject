@@ -1,6 +1,6 @@
 package concepts
 
-class AppMain extends App {
+object AppMain extends App {
 
   println("Hello without using scala")
 
