@@ -3,7 +3,7 @@ package patterns
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
-object MainClass {
+object SubSetsWithoutDuplicates {
 
   def main(args: Array[String]): Unit = {
     var result1 = findSubSets(Array[Int](1,5,3))
@@ -15,9 +15,13 @@ object MainClass {
 
   def findSubSets(nums: Array[Int]) : ArrayBuffer[ArrayBuffer[Integer]] = {
 
+    scala.util.Sorting.stableSort(nums)
+
     val result: ArrayBuffer[ArrayBuffer[Integer]] = mutable.ArrayBuffer[ArrayBuffer[Integer]]()
 
     result += mutable.ArrayBuffer[Integer]()
+
+    var hashSet : mutable.HashSet[ArrayBuffer[Integer]]  = mutable.HashSet[ArrayBuffer[Integer]]()
 
     for( number <- nums) {
 
@@ -28,7 +32,10 @@ object MainClass {
         var set : ArrayBuffer[Integer] = new ArrayBuffer[Integer]()
         result(i).copyToBuffer(set)
         set += (number)
-        result += (set)
+        if(!hashSet.contains(set)) {
+          result += (set)
+          hashSet += set
+        }
       }
 
     }
