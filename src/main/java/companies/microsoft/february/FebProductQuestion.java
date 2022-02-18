@@ -6,10 +6,6 @@ public class FebProductQuestion {
 
         int numberOfNegative = 0;
 
-        int numberOfZeros = 0;
-
-        int sign = 0;
-
         for(int i = 0; i < nums.length; i++ ) {
 
             if( nums[i] < 0 ) {
@@ -17,7 +13,7 @@ public class FebProductQuestion {
             }
 
             if( nums[i] == 0 ) {
-                numberOfZeros++;
+                return 0;
             }
         }
 
