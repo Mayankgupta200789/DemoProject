@@ -1,6 +1,10 @@
 package singleton;
 
 /**
+ *
+ *
+ * The variable
+ *
  * @Author Mayank Gupta
  * @Date 11/7/17
  */
