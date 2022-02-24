@@ -15,7 +15,7 @@ package singleton;
  * @Author Mayank Gupta
  * @Date 9/8/17
  */
-public class Singleton {
+public class  Singleton {
 
     private static class SingletonClassHolder {
 
