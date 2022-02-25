@@ -24,6 +24,10 @@ public class DegreeOfArray {
             return elem.num == this.num;
         }
 
+        public int hashCode() {
+            return this.num;
+        }
+
 
     }
 
@@ -73,6 +77,7 @@ public class DegreeOfArray {
             for(int maxNumber : maxNumbers ) {
                 if (elem.num == maxNumber) {
                     minWindow = Math.min(minWindow, (elem.endIndex - elem.startIndex + 1));
+                    break;
                 }
             }
         }
