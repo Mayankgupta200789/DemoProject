@@ -25,9 +25,6 @@ public class AsteroidProblem {
 
                 if(result.pollLast() < -asteroids[i]) i--;
             }
-
-
-
         }
 
 
