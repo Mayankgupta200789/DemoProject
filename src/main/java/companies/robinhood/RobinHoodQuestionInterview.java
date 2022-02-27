@@ -105,7 +105,6 @@ public class RobinHoodQuestionInterview {
         Queue<String> queue = new LinkedList<>();
         List<String> result = new ArrayList<>();
 
-
         for (String[] value : inputs) {
 
             graph.put(value[0], new ArrayList<>());
