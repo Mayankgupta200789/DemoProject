@@ -1,60 +1,64 @@
 package companies.doordash;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MaxProfitPerWorker {
 
+    public class Work {
+
+
+         int difficulty;
+         int profit;
+
+         public Work(int difficulty, int profit ) {
+             this.difficulty = difficulty;
+             this.profit = profit;
+         }
+
+    }
+
     public static void main(String[] args) {
 
-        int[] difficulty = new int[]{7,20,68};
-        int[] profit = new int[]{26,28,57};
-        int[] worker = new int[]{71,20,71};
+        int[] difficulty = new int[]{68,35,52,47,86};
+        int[] profit = new int[]{67,17,1,81,3};
+        int[] worker = new int[]{92,10,85,84,82};
+
         new MaxProfitPerWorker().maxProfitAssignment(difficulty, profit,worker);
     }
 
 
     public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
 
-        Map<Integer,Integer> hashMap = new HashMap<>();
-        int maxProfit = 0;
+        List<Work> workList = new ArrayList<>();
 
-        int i = 0;
+        for(int i = 0 ; i < difficulty.length; i++ ) {
 
-        while( i < difficulty.length ) {
+            workList.add(new Work(difficulty[i],profit[i]));
 
-            hashMap.put(difficulty[i],profit[i]);
-            i++;
         }
-        Arrays.sort(difficulty);
-        Arrays.sort(worker);
-        Map<Integer,Integer> maxProfitPerWorker = new HashMap<>();
-        int k = 0;
+
         int result = 0;
-        i = 0;
-        while(i < difficulty.length && k < worker.length) {
+        int best = 0;
 
-            if(worker[k] >= difficulty[i]) {
-                result = maxProfitPerWorker.getOrDefault(worker[k],0);
-                result = Math.max(result,hashMap.get(difficulty[i]));
-                maxProfitPerWorker.put(worker[k],result);
-                i++;
-            } else {
-                maxProfitPerWorker.put(worker[k],result);
-                k++;
-            }
+        workList.sort(Comparator.comparingInt(a -> a.difficulty));
 
+        Arrays.sort(worker);
+        int k = 0;
+
+
+        for(int ability : worker ) {
+
+            while( k < profit.length && ability >= workList.get(k).difficulty)
+                best = Math.max(best, workList.get(k++).profit);
+
+            result += best;
         }
 
-        for(Map.Entry<Integer,Integer> entry : maxProfitPerWorker.entrySet()) {
-
-            maxProfit += entry.getValue();
-        }
+        return result;
 
 
 
-        return maxProfit;
+
 
 
     }

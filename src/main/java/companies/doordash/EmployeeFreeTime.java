@@ -21,7 +21,7 @@ public class EmployeeFreeTime {
             }
         }
 
-        Collections.sort(totalIntervals, Comparator.comparingInt(a -> a.start));
+        totalIntervals.sort(Comparator.comparingInt(a -> a.start));
 
         Interval previousInterval = totalIntervals.get(0);
 
