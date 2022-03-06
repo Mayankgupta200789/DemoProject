@@ -7,49 +7,41 @@ import java.util.Random;
  * @Author Mayank Gupta
  * @Date 11/15/17
  */
-public class Producer extends Thread {
+// Producer class which extends the
+// thread
+class Producer extends Thread {
 
-    private Queue<Integer> queue;
+    // Creating a string buffer
+    StringBuffer buffer;
+    boolean dp = false;
 
-    private int maxSize;
-
-    public Producer(Queue<Integer> queue, int maxSize) {
-        this.queue = queue;
-        this.maxSize = maxSize;
+    // Initializing the string buffer
+    Producer()
+    {
+        buffer = new StringBuffer(4);
     }
 
-    @Override
-    public void run() {
+    // Overriding the run method
+    public void run()
+    {
+        synchronized (buffer)
+        {
 
-        while (true) {
-            synchronized (queue) {
-
-                while (queue.size() == maxSize) {
-                    try {
-                        queue.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            synchronized (queue) {
-
-                Random random = new Random();
-                int input = random.nextInt(1000);
-                System.out.println("Input produced " + input);
-                queue.add(input);
-
+            // Adding the data into the
+            // buffer
+            for (int i = 0; i < 4; i++) {
                 try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
+                    buffer.append(i);
+                    System.out.println("Produced " + i);
+                }
+                catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                queue.notifyAll();
             }
 
-
+            // Notifying the buffer
+            System.out.println("Buffer is FUll");
+            buffer.notify();
         }
     }
 }

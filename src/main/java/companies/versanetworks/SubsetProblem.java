@@ -12,6 +12,7 @@ public class SubsetProblem {
 
        if(inputs == null ) return null;
        List<List<Integer>> result = new ArrayList<>();
+       result.add(new ArrayList<>());
 
        for(int number : inputs ) {
 

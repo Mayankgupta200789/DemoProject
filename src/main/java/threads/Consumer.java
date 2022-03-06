@@ -6,51 +6,42 @@ import java.util.Queue;
  * @Author Mayank Gupta
  * @Date 11/15/17
  */
-public class Consumer extends Thread {
+// Consumer class which extends
+// the thread
+class Consumer extends Thread {
 
-    private Queue<Integer> queue;
+    // Creating the object of the
+    // producer class
+    Producer p;
 
-    private int maxSize;
-
-    public Consumer(Queue<Integer> queue) {
-        this.queue = queue;
+    // Assigning the object of the
+    // producer class
+    Consumer(Producer temp)
+    {
+        p = temp;
     }
 
-    @Override
-    public void run() {
+    // Overriding the run method
+    public void run()
+    {
 
-        while (true) {
-
-            synchronized (queue) {
-
-                while(queue.isEmpty()) {
-                    System.out.println("Waiting for producer to produce");
-                    try {
-                        queue.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+        // Controlling the access of the
+        // buffer to the shared producer
+        synchronized (p.buffer)
+        {
+            try {
+                p.buffer.wait();
+            }
+            catch (Exception e) {
+                e.printStackTrace();
             }
 
-
-            synchronized (queue) {
-                while (!queue.isEmpty()) {
-                    System.out.println("Input consumed " + queue.remove());
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                }
+            // Printing the values of the string buffer
+            // and consuming the buffer
+            for (int i = 0; i < 4; i++) {
+                System.out.print(p.buffer.charAt(i) + " ");
             }
+            System.out.println("\nBuffer is Empty");
         }
-
     }
 }

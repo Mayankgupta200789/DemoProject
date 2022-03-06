@@ -38,10 +38,6 @@ public class MyHashMap<I, O> {
             entries[hashCode].next = new Entry<>(key, value);
         }
 
-        ArrayList<Integer> integers = new ArrayList<>();
-
-
-
         size++;
     }
 

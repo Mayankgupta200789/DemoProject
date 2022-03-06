@@ -16,14 +16,13 @@ public class ProducerConsumerMain {
 
         Queue<Integer> queue = new LinkedList<>();
 
-        Producer producer = new Producer(queue,5);
+        Producer producer = new Producer();
 
-        Consumer consumer = new Consumer(queue);
+        Consumer consumer = new Consumer(producer);
 
-        Thread a = new Thread(producer);
-        Thread b = new Thread(consumer);
 
-        a.start();
-        b.start();
+
+        producer.start();
+        consumer.start();
     }
 }
