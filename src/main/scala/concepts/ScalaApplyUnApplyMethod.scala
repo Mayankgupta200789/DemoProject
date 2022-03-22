@@ -13,7 +13,7 @@ object ScalaApplyUnApplyMethod {
 
   def main(args: Array[String]): Unit = {
 
-      ScalaApplyUnApplyMethod("String",2)
+    ScalaApplyUnApplyMethod("String",2)
 
     val tuple = ("input", 2)
     val tuple2 = ("input", "2")

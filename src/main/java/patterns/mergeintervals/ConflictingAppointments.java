@@ -1,11 +1,12 @@
 package patterns.mergeintervals;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 class ConflictingAppointments {
 
     public static boolean canAttendAllAppointments(Interval[] intervals) {
-        Arrays.sort(intervals,(a, b) -> Integer.compare(a.start,b.start));
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a.start));
 
         if(intervals.length < 2 )return true;
 

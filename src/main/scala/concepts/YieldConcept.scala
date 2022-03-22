@@ -25,4 +25,12 @@ object YieldConcept {
     var b : Option[String] = None
     a
   }
+
+  def optionMethods(name: Option[String]): Unit = {
+
+    println(name.isEmpty)
+    println(name.isDefined)
+    println(name.getOrElse("No Name Provided"))
+
+  }
 }

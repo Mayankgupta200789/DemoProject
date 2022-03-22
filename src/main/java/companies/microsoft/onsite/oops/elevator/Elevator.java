@@ -3,14 +3,28 @@ package companies.microsoft.onsite.oops.elevator;
 public class Elevator {
 
     private int id;
-    private int currentFloor;
+    private Direction currentDirection;
+    private int moveToFloor;
 
-    private Button button;
+    public int getCurrentFloor() {
+        return currentFloor;
+    }
 
-    public Elevator(int id, int currentFloor) {
-        this.id = id;
+    public void setCurrentFloor(int currentFloor) {
         this.currentFloor = currentFloor;
     }
+
+    private int currentFloor;
+
+    public int getMoveToFloor() {
+        return moveToFloor;
+    }
+
+    public void setMoveToFloor(int moveToFloor) {
+        this.moveToFloor = moveToFloor;
+    }
+
+    private Button button;
 
     public int getId() {
         return id;
@@ -20,12 +34,12 @@ public class Elevator {
         this.id = id;
     }
 
-    public int getCurrentFloor() {
-        return currentFloor;
+    public Direction getCurrentDirection() {
+        return currentDirection;
     }
 
-    public void setCurrentFloor(int currentFloor) {
-        this.currentFloor = currentFloor;
+    public void setCurrentDirection(Direction currentDirection) {
+        this.currentDirection = currentDirection;
     }
 
     public Button getButton() {
