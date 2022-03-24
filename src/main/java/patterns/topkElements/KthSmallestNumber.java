@@ -1,10 +1,24 @@
 package patterns.topkElements;
 
-public class KthSmallestNumber {
+import java.util.*;
+
+class KthSmallestNumber {
 
     public static int findKthSmallestNumber(int[] nums, int k) {
-        // TODO: Write your code here
-        return -1;
+        Queue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        Set<Integer> hashSet = new HashSet<>();
+        int l = 0;
+        new ArrayList<>(new Comparator<>())
+
+        for(int i = 0; i < nums.length; i++ ) {
+            queue.add(nums[i]);
+            if(queue.size() > k ){
+                queue.poll();
+            }
+        }
+
+
+        return queue.poll();
     }
 
     public static void main(String[] args) {
@@ -18,5 +32,4 @@ public class KthSmallestNumber {
         result = KthSmallestNumber.findKthSmallestNumber(new int[] { 5, 12, 11, -1, 12 }, 3);
         System.out.println("Kth smallest number is: " + result);
     }
-
 }
