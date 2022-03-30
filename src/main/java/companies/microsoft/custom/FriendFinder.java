@@ -146,7 +146,7 @@ public class FriendFinder {
         if(collision != null ) {
             return mergePath(bfs2,bfs1,collision.getId()).size();
         }
-
+        return 0;
 
     }
 }

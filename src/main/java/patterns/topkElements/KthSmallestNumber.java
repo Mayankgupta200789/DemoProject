@@ -8,7 +8,6 @@ class KthSmallestNumber {
         Queue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
         Set<Integer> hashSet = new HashSet<>();
         int l = 0;
-        new ArrayList<>(new Comparator<>())
 
         for(int i = 0; i < nums.length; i++ ) {
             queue.add(nums[i]);
