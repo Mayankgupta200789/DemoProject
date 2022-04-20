@@ -37,10 +37,19 @@ public class ParkingSpotFinderImpl implements ParkingSpotFinder {
     @Override
     public ParkingSpot find(Entrance entrance) {
 
-        if(entrance.equals(Entrance.FIRST) && !ParkingSpotAvailableCache.availableParkingSpotQueue1.isEmpty()) {
-            return ParkingSpotAvailableCache.availableParkingSpotQueue1.poll();
-        } else {
-            return  null;
+        if(entrance.equals(Entrance.FIRST)) {
+            return !ParkingSpotAvailableCache.availableParkingSpotQueue1.isEmpty()
+                    ? ParkingSpotAvailableCache.availableParkingSpotQueue1.poll() : null;
+        } else if(entrance.equals(Entrance.SECOND)) {
+            return !ParkingSpotAvailableCache.availableParkingSpotQueue2.isEmpty()
+                    ? ParkingSpotAvailableCache.availableParkingSpotQueue2.poll() : null;
+        }else if(entrance.equals(Entrance.THIRD)) {
+            return !ParkingSpotAvailableCache.availableParkingSpotQueue3.isEmpty()
+                    ? ParkingSpotAvailableCache.availableParkingSpotQueue3.poll() : null;
+        }else if(entrance.equals(Entrance.FOURTH)) {
+            return !ParkingSpotAvailableCache.availableParkingSpotQueue4.isEmpty()
+                    ? ParkingSpotAvailableCache.availableParkingSpotQueue4.poll() : null;
         }
+        return null;
     }
 }

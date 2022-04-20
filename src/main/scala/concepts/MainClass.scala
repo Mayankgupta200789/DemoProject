@@ -17,9 +17,9 @@ object MainClass {
 
     days.foreach(day => println("The day is " + day))
 
-    val outputs = days.map(day => day + " the Feb")
+    val outputs = days.map(day => day + ",")
 
-    outputs.foreach(output => println(output))
+    println("outputs " + outputs)
 
     val flatMappedOutput = days.flatMap(day => List(day, day + "2"))
     val normalMappedOutput = days.map(day => List(day, day + "2"))
